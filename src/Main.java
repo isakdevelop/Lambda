@@ -3,10 +3,11 @@ import board.BoardView;
 import crawler.CrawlerView;
 import user.UserView;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         while (true)    {
             System.out.println("0. 종료 , 1. 사용자 정보, 2. 게시판, 3. 결제 정보, 4. 크롤러");

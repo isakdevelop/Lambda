@@ -15,12 +15,12 @@ public class User {
     private String confirmPassword;
     private String name;
     private String socialSecurityNumber;
-    private String tell;
+    private String phone;
     private String address;
     private String job;
 
     @Builder(builderMethodName = "builder")
-    public User(double height, double weight, String userName, String password, String confirmPassword, String name, String socialSecurityNumber, String tell, String address, String job) {
+    public User(double height, double weight, String userName, String password, String confirmPassword, String name, String socialSecurityNumber, String phone, String address, String job) {
         this.height = height;
         this.weight = weight;
         this.userName = userName;
@@ -28,7 +28,7 @@ public class User {
         this.confirmPassword = confirmPassword;
         this.name = name;
         this.socialSecurityNumber = socialSecurityNumber;
-        this.tell = tell;
+        this.phone = phone;
         this.address = address;
         this.job = job;
     }
