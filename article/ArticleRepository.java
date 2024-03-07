@@ -1,0 +1,134 @@
+package article;
+
+import java.sql.*;
+import java.util.List;
+
+public class ArticleRepository {
+    private static ArticleRepository instance;
+    private final Connection connection;
+    public static ArticleRepository getInstance()   {
+        return instance;
+    }
+    public ArticleRepository() throws SQLException {
+        instance = new ArticleRepository();
+        this.connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/dennisdb",
+                "root",
+                "rootroot"
+        );
+    }
+
+    public String createArticle(String subject, String content, String writer) throws SQLException {
+        String sql = "insert into article(title, content, writer) " +
+                "VALUES (?, ?, ?)";
+        PreparedStatement pdst = connection.prepareStatement(sql);
+        pdst.setString(1, subject);
+        pdst.setString(2, content);
+        pdst.setString(3, writer);
+
+        int result = pdst.executeUpdate();
+        if (result > 0) {
+            return "기사 작성 완료";
+        } else {
+            return "기사 작성 실패";
+        }
+    }
+
+    public String modifyArticle(int id, String subject, String content) throws SQLException {
+        String sql = "UPDATE article SET subject = ?, content = ? where id = ?";
+        PreparedStatement pdst = connection.prepareStatement(sql);
+        pdst.setString(1, subject);
+        pdst.setString(2, content);
+        pdst.setInt(3, id);
+
+        int result = pdst.executeUpdate();
+        if (result > 0) {
+            return "기사 수정 완료";
+        } else {
+            return "기사 수정 실패";
+        }
+    }
+
+    public String deleteArticle(int id) throws SQLException {
+        String sql = "Delete from article where id = ?";
+        PreparedStatement pdst = connection.prepareStatement(sql);
+        pdst.setInt(1, id);
+
+        int result = pdst.executeUpdate();
+        if (result > 0) {
+            return "기사 삭제 완료";
+        } else {
+            return "기사 삭제 실패";
+        }
+    }
+
+    public List<?> searchArticleByTitle(String title) throws SQLException {
+        String sql = "select * from article where title = Like ?";
+        PreparedStatement pdst = connection.prepareStatement(sql);
+        pdst.setString(1, "%" + title + "%");
+
+        ResultSet resultSet = pdst.executeQuery();
+        if(resultSet.next()){
+            do{
+                System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("content"),
+                        resultSet.getString("writer"));
+                System.out.println();
+            }while(resultSet.next());
+
+        }else{
+            System.out.println("데이터가 없습니다.");
+        }
+
+        return null;
+    }
+
+    public List<?> searchArticleByContent(String str) throws SQLException {
+        String sql = "select * from article where content = Like ?";
+        PreparedStatement pdst = connection.prepareStatement(sql);
+        pdst.setString(1, "%" + str + "%");
+
+        ResultSet resultSet = pdst.executeQuery();
+        if(resultSet.next()){
+            do{
+                System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("content"),
+                        resultSet.getString("writer"));
+                System.out.println();
+            }while(resultSet.next());
+
+        }else{
+            System.out.println("데이터가 없습니다.");
+        }
+
+        return null;
+    }
+
+    public List<?> searchArticleByWriter(String writer) throws SQLException {
+        String sql = "select * from article where writer = ?";
+        PreparedStatement pdst = connection.prepareStatement(sql);
+        pdst.setString(1, writer);
+
+        ResultSet resultSet = pdst.executeQuery();
+        if(resultSet.next()){
+            do{
+                System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("content"),
+                        resultSet.getString("writer"));
+                System.out.println();
+            }while(resultSet.next());
+
+        }else{
+            System.out.println("데이터가 없습니다.");
+        }
+
+        return null;
+    }
+
+}

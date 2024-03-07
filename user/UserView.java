@@ -1,9 +1,11 @@
 package user;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
-    public static void main(Scanner sc)    {
+    public static void main(Scanner sc) throws SQLException {
         UserController controller = new UserController();
         controller.addUsers();
 
@@ -38,7 +40,9 @@ public class UserView {
 
                 case "3":
                     System.out.println("=== ID 검색 ===");
-                    System.out.println(controller.findUserById(sc));
+                    // System.out.println(controller.findUserById(sc));
+//                    System.out.println(controller.test());
+//                    controller.repositoryUsers();
                     break;
 
                 case "4":
@@ -53,7 +57,8 @@ public class UserView {
 
                 case "6":
                     System.out.println("=== 회원 목록 ===");
-                    System.out.println(controller.getUserList());
+                    List<?> users = controller.findUsers();
+                    users.forEach(i -> System.out.println(i));
                     break;
 
                 case "7":

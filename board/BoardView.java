@@ -1,43 +1,32 @@
 package board;
 
-import common.UtilService;
-import common.UtilServiceImpl;
+import user.User;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BoardView {
-    public static void main() {
-        List<Board> articles = new ArrayList<>();
-        UtilService util = UtilServiceImpl.getInstance();
+    public static void main(Scanner sc) {
+        while (true)    {
+            System.out.print("[메뉴]\n" +
+                    "0. 종료\n" +
+                    "1. 보드 이름 보기\n" +
+                    "2. 보드 타입 보기\n" +
+                    "입력 : ");
+            switch (sc.next()) {
+                case "0":
+                    System.out.println("종료");
+                    return;
 
-        for (int i = 0; i < 5; i++) {
-            articles.add(
-                    Board.builder()
-                            .subject(util.createRandomTitle())
-                            .content(util.createRandomContent())
-                            .writer(util.createRandomName())
-                            .build());
+                case "1":
+                    System.out.println("=== 보드 이름 보기 ===");
+                    System.out.println();
+                    break;
 
+                case "2":
+                    System.out.println("=== 보드 타입 보기 ===");
+                    break;
+            }
         }
-
-        for (Board board : articles) {
-            System.out.println(board.getSubject() + "\t" +
-                    board.getContent() + "\t" +
-                    board.getWriter());
-        }
-
-        for (Board i : articles) {
-            System.out.println(i.toString());
-        }
-        //외부 반복자. 요소가 밖으로 나갔다가 옴 / 객체가 움직이지 않음.
-
-        articles.forEach(i -> {
-            System.out.println(i.toString());
-        });
-        System.out.println();
-        //메모리 변화가 일어나지 않음. 내부 반복자 / 객체가 움직임.
-
-
     }
 }

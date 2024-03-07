@@ -2,6 +2,7 @@ package user;
 
 import enums.Messenger;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,10 +28,18 @@ public class UserController {
                         .confirmPassword(sc.next())
                         .name(sc.next())
                         .socialSecurityNumber(sc.next())
-                        .tell(sc.next())
+                        .phone(sc.next())
                         .address(sc.next())
                         .job(sc.next())
                         .build());
+    }
+
+    public String test()    {
+        return userService.test();
+    }
+
+    public List<?> findUsers() throws SQLException {
+        return userService.findUsers();
     }
 
     public String login(Scanner sc) {
@@ -93,4 +102,5 @@ public class UserController {
     public String count()   {
         return "회원 수 : " + userService.count() + "명";
     }
+
 }
