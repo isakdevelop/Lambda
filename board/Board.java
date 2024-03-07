@@ -2,9 +2,9 @@ package board;
 
 import lombok.*;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
+@ToString(exclude = {"id"})
 
 public class Board {
     private Integer id;
