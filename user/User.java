@@ -4,7 +4,7 @@ import lombok.*;
 
 @NoArgsConstructor
 @Getter
-@ToString(exclude = {"height", "weight"})
+@ToString(exclude = {"height", "weight", "addressID"})
 
 public class User {
     private Long id;
@@ -14,22 +14,19 @@ public class User {
     private String password;
     private String confirmPassword;
     private String name;
-    private String socialSecurityNumber;
     private String phone;
-    private String address;
+    private Long addressID;
     private String job;
 
     @Builder(builderMethodName = "builder")
-    public User(double height, double weight, String userName, String password, String confirmPassword, String name, String socialSecurityNumber, String phone, String address, String job) {
+    public User(double height, double weight, String userName, String password, String confirmPassword, String name, String phone, String job) {
         this.height = height;
         this.weight = weight;
         this.userName = userName;
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.name = name;
-        this.socialSecurityNumber = socialSecurityNumber;
         this.phone = phone;
-        this.address = address;
         this.job = job;
     }
 

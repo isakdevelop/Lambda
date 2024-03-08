@@ -21,6 +21,9 @@ public class UserView {
                     "7. 이름 검색\n" +
                     "8. 직업 검색\n" +
                     "9. 회원 수\n" +
+                    "touch - 테이블 생성\n" +
+                    "rm - 테이블 삭제\n" +
+                    "insert - 튜플 생성\n" +
                     "입력 : ");
             switch (sc.next()) {
                 case "0":
@@ -29,13 +32,15 @@ public class UserView {
 
                 case "1":
                     System.out.println("=== 회원 가입 ===");
-                    System.out.println(controller.join(sc));
-                    System.out.println();
+                    //System.out.println(controller.join(sc));
+                    // System.out.println();
+                    System.out.println(controller.insertUser(sc));
                     break;
 
                 case "2":
                     System.out.println("=== 로그인 ===");
-                    System.out.println(controller.login(sc));
+//                    System.out.println(controller.login(sc));
+                    System.out.println(controller.databaseLogin(sc));
                     break;
 
                 case "3":
@@ -43,6 +48,7 @@ public class UserView {
                     // System.out.println(controller.findUserById(sc));
 //                    System.out.println(controller.test());
 //                    controller.repositoryUsers();
+                    //controller.findUserDatabaseById();
                     break;
 
                 case "4":
@@ -75,6 +81,18 @@ public class UserView {
                     System.out.println("=== 회원 수 ===");
                     System.out.println(controller.count());
                     break;
+                case "touch":
+                    System.out.println("=== 테이블 생성 ===");
+                    System.out.println(controller.createUserTable());
+                    break;
+                case "rm":
+                    System.out.println("=== 테이블 삭제 ===");
+                    System.out.println("회원 테이블 삭제 성공");
+                    break;
+//                case "insert":
+//                    System.out.println("=== 회원 가입 ===");
+//                    System.out.println(controller.insertUser(sc));
+//                    break;
             }
         }
     }

@@ -3,6 +3,7 @@ package user;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public interface UserService {
     String addUsers();
@@ -16,4 +17,9 @@ public interface UserService {
     List<?> findUsersByUserName(String userName);
     String test();
     List<?> findUsers() throws SQLException;
+    String insertUser(User user) throws SQLException;
+
+    String createUserTable() throws SQLException;
+
+    String databaseLogin(String username, String password) throws SQLException;
 }

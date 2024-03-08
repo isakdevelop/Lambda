@@ -1,5 +1,6 @@
 package article;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,5 +29,9 @@ public class ArticleController{
 
     public List<?> searchArticleByWriter(String writer) {
         return null;
+    }
+
+    public List<?> findAll() throws SQLException {
+        return articleService.findAll();
     }
 }

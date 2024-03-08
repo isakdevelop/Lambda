@@ -25,11 +25,6 @@ public class MathProxy {
     public static BiFunction<Float, Float, Float> randomFloat = (a, b) -> (float) (Math.random() * (b - a) + a);
     public static BiFunction<Long, Long, Long> randomLong = (a, b) -> (long) (Math.random() * (b - a)) + a;
 
-    public static Function<String, Integer> parseInt = Integer::parseInt;
-    public static Function<String, Double> parseDouble = Double::parseDouble;
-    public static Function<String, Float> parseFloat = Float::parseFloat;
-    public static Function<String, Long> parseLong = Long::parseLong;
-
     public static Function<Double, Double> ceilDouble = Math::ceil;
     public static Function<Float, Float> ceilFloat = a -> (float) Math.ceil(a);
 

@@ -107,6 +107,21 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
 
     @Override
+    public String insertUser(User user) throws SQLException {
+        return userRepository.insertUser(user);
+    }
+
+    @Override
+    public String createUserTable() throws SQLException {
+        return userRepository.createUserTable();
+    }
+
+    @Override
+    public String databaseLogin(String username, String password) throws SQLException {
+        return userRepository.databaseLogin(username, password);
+    }
+
+    @Override
     public String addUsers() {
         IntStream.range(0, 5)
                 .mapToObj(i -> UtilServiceImpl.getInstance().createRandomUserName())

@@ -1,5 +1,6 @@
 package article;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ArticleService {
@@ -9,4 +10,6 @@ public interface ArticleService {
     List<?> searchArticleByTitle(String title);
     List<?> searchArticleByContent(String str);
     List<?> searchArticleByWriter(String writer);
+
+    List<?> findAll() throws SQLException;
 }

@@ -27,9 +27,7 @@ public class UserController {
                         .password(sc.next())
                         .confirmPassword(sc.next())
                         .name(sc.next())
-                        .socialSecurityNumber(sc.next())
                         .phone(sc.next())
-                        .address(sc.next())
                         .job(sc.next())
                         .build());
     }
@@ -103,4 +101,36 @@ public class UserController {
         return "회원 수 : " + userService.count() + "명";
     }
 
+    public String insertUser(Scanner sc) throws SQLException {
+        System.out.print("사용자 아이디, " +
+                "사용자 비밀번호, " +
+                "사용자 이름," +
+                "사용자 전화 번호," +
+                "사용자 직업," +
+                "사용자 키" +
+                "사용자 몸무게를 순차적으로 입력해주세요.\n" +
+                "입력 : ");
+        return userService.insertUser(User.builder()
+                .userName(sc.next())
+                .password(sc.next())
+                .name(sc.next())
+                .phone(sc.next())
+                .job(sc.next())
+                .height(sc.nextDouble())
+                .weight(sc.nextDouble())
+                .build());
+    }
+
+    public String createUserTable() throws SQLException {
+        return userService.createUserTable();
+    }
+
+    public String databaseLogin(Scanner sc) throws SQLException {
+        System.out.print("아이디 : ");
+        String username = sc.next();
+
+        System.out.print("비밀번호 : ");
+        String password = sc.next();
+        return userService.databaseLogin(username, password);
+    }
 }
