@@ -121,7 +121,7 @@ public class UserController {
                 .build());
     }
 
-    public String createUserTable() throws SQLException {
+    public Messenger createUserTable() throws SQLException {
         return userService.createUserTable();
     }
 

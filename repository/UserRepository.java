@@ -1,5 +1,6 @@
 package repository;
 
+import enums.Messenger;
 import user.User;
 
 import java.sql.*;
@@ -19,7 +20,9 @@ public class UserRepository {
         }
     }
 
-    public static UserRepository getInstance(){return instance;}
+    public static UserRepository getInstance() {
+        return instance;
+    }
 
     private UserRepository() throws SQLException {
         this.connection = DriverManager.getConnection(
@@ -29,7 +32,7 @@ public class UserRepository {
         );
     }
 
-    public String test()    {
+    public String test() {
         return "UserRepository 연결";
     }
 
@@ -37,17 +40,17 @@ public class UserRepository {
         String sql = "select * from board";
         PreparedStatement pdst = connection.prepareStatement(sql);
         ResultSet resultSet = pdst.executeQuery();
-        if(resultSet.next()){
-            do{
+        if (resultSet.next()) {
+            do {
                 System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
                         resultSet.getInt("id"),
                         resultSet.getString("title"),
                         resultSet.getString("content"),
                         resultSet.getString("writer"));
                 System.out.println();
-            }while(resultSet.next());
+            } while (resultSet.next());
 
-        }else{
+        } else {
             System.out.println("데이터가 없습니다.");
         }
 
@@ -58,17 +61,30 @@ public class UserRepository {
         return null;
     }
 
-    public String createUserTable() throws SQLException {
-        String sql="CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY" +
+    public Messenger createUserTable() throws SQLException {
+        String sql = "CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY" +
                 ",username VARCHAR(50),password VARCHAR(50),name VARCHAR(100)" +
                 ",phone VARCHAR(20),job VARCHAR(50),height VARCHAR(10)" +
                 ",weight VARCHAR(10))";
 
 
-            connection.prepareStatement(sql).executeUpdate();
-            return "테이블이 이미 존재하여 회원 테이블 생성하지 않음";
+        int ex = connection.prepareStatement(sql).executeUpdate();
+
+        return (ex == 0) ? "SUCCES" : "FAIL";
 
     }
+
+//    public String createUserTable() throws SQLException {
+//        String sql = "CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY" +
+//                ",username VARCHAR(50),password VARCHAR(50),name VARCHAR(100)" +
+//                ",phone VARCHAR(20),job VARCHAR(50),height VARCHAR(10)" +
+//                ",weight VARCHAR(10))";
+//
+//
+//        connection.prepareStatement(sql).executeUpdate();
+//        return "테이블이 이미 존재하여 회원 테이블 생성하지 않음";
+//
+//    }
 
     public String insertUser(User user) throws SQLException {
         String sql = "insert into users(username, password, name" +
@@ -108,43 +124,9 @@ public class UserRepository {
 
     }
 
-//    public String findUserDatabaseById(String username) throws SQLException {
-//        String sql = "SELECT * FROM users WHERE username = ?";
-//        PreparedStatement pdst = connection.prepareStatement(sql);
-//        pdst.setString(1, username);
-//
-//        ResultSet rs = pdst.executeQuery();
-//        if (rs.next()) {
-//            do{
-//                System.out.println();
-//            }
-//        }
-//
-//    }
-}
-
-
-/*
-String sql = "select * from board";
+    public String databaseDelete() throws SQLException {
+        String sql = "DROP TABLE users";
+        // String sql = "Delete from users"; user의 모든 레코드 삭제
         PreparedStatement pdst = connection.prepareStatement(sql);
-        ResultSet resultSet = pdst.executeQuery();
-        if(resultSet.next()){
-            do{
-                System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
-                        resultSet.getInt("id"),
-                        resultSet.getString("title"),
-                        resultSet.getString("content"),
-                        resultSet.getString("writer"));
-                System.out.println();
-            }while(resultSet.next());
-
-        }else{
-            System.out.println("데이터가 없습니다.");
-        }
-
-        resultSet.close();
-        pdst.close();
-        connection.close();
-
-        return null;
- */
+    }
+}
