@@ -6,26 +6,33 @@ import java.util.Scanner;
 
 public class UserView {
     public static void main(Scanner sc) throws SQLException {
-        UserController controller = new UserController();
-        controller.addUsers();
-
-        while (true)    {
+        boolean running = true;
+        while (running)    {
             System.out.print("[메뉴]\n" +
-                    "0. 종료\n" +
-                    "1. 회원 가입\n" +
-                    "2. 로그인\n" +
-                    "3. ID 검색\n" +
-                    "4. 비번 변경\n" +
-                    "5. 회원 탈퇴\n" +
-                    "6. 회원 목록\n" +
-                    "7. 이름 검색\n" +
-                    "8. 직업 검색\n" +
-                    "9. 회원 수\n" +
+                    "0. EXIT(e)\n" +
+                    "1. SIGNUP(signup)\n" +
+                    "2. LOGIN(login)\n" +
+                    "3. SELECTID(selectId)\n" +
+                    "4. PASSWORDCHANGE(passwordChange)\n" +
+                    "5. WITHDRAWAL(withdrawal)\n" +
+                    "6. FINDUSER(finduser)\n" +
+                    "7. FINDUSERBYNAME(finduserbyname)\n" +
+                    "8. FINDUSERBYJOB(finduserbyjob)\n" +
+                    "9. USERCOUNT(usercount)\n" +
                     "touch - 테이블 생성\n" +
                     "rm - 테이블 삭제\n" +
                     "insert - 튜플 생성\n" +
-                    "입력 : ");
-            switch (sc.next()) {
+                    "input command : ");
+
+            UserViewEnum command = UserViewEnum.getByCommand(sc.next());
+            running = command.performAction(sc);
+
+        }
+    }
+}
+
+/*
+switch (sc.next()) {
                 case "0":
                     System.out.println("종료");
                     return;
@@ -48,38 +55,43 @@ public class UserView {
                     // System.out.println(controller.findUserById(sc));
 //                    System.out.println(controller.test());
 //                    controller.repositoryUsers();
-                    //controller.findUserDatabaseById();
+                    controller.findUserDatabaseById(sc);
                     break;
 
                 case "4":
                     System.out.println("=== 비번 변경 ===");
-                    System.out.println(controller.updatePassword(sc));
+                    // System.out.println(controller.updatePassword(sc));
+                    controller.changeDatabasePassword(sc);
                     break;
 
                 case "5":
                     System.out.println("=== 회원 탈퇴 ===");
-                    System.out.println(controller.deleteUser(sc));
+                    System.out.println(controller.databaseWithdrawal(sc));
                     break;
 
                 case "6":
                     System.out.println("=== 회원 목록 ===");
-                    List<?> users = controller.findUsers();
-                    users.forEach(i -> System.out.println(i));
+//                    List<?> users = controller.findUsers();
+//                    users.forEach(i -> System.out.println(i));
+                    controller.findUserDatabase();
                     break;
 
                 case "7":
                     System.out.println("=== 이름 검색 ===");
-                    controller.findUserByName(sc).forEach(System.out::println);
+                    // controller.findUserByName(sc).forEach(System.out::println);
+                    controller.findUserDatabaseByName(sc);
                     break;
 
                 case "8":
                     System.out.println("=== 직업 검색 ===");
-                    System.out.println(controller.findUserByJob(sc));
+                    // System.out.println(controller.findUserByJob(sc));
+                    controller.findUserDatabaseByJob(sc);
                     break;
 
                 case "9":
                     System.out.println("=== 회원 수 ===");
-                    System.out.println(controller.count());
+                    // System.out.println(controller.count());
+                    controller.userCount();
                     break;
                 case "touch":
                     System.out.println("=== 테이블 생성 ===");
@@ -94,6 +106,4 @@ public class UserView {
 //                    System.out.println(controller.insertUser(sc));
 //                    break;
             }
-        }
-    }
-}
+ */

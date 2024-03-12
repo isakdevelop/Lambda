@@ -10,48 +10,58 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public enum MainEnum {
-    Exit("e", () -> {}),
-    User("u", () -> {
+    Exit("e", scanner -> false),
+    User("u", scanner -> {
         try {
-            UserView.main(new Scanner(System.in));
+            UserView.main(scanner);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }),
-    Article("a", () -> {
+    Article("a", scanner -> {
         try {
-            ArticleView.main(new Scanner(System.in));
+            ArticleView.main(scanner);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }),
-    Board("b", () -> BoardView.main(new Scanner(System.in))),
-    Crawler("c", () -> {
+    Board("b", scanner -> {
+        BoardView.main(scanner);
+        return true;
+    }),
+    Crawler("c", scanner -> {
         try {
-            CrawlerView.main(new Scanner(System.in));
+            CrawlerView.main(scanner);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }),
-    Account("m", () -> AccountView.main(new Scanner(System.in)));
+    Account("m", scanner -> {
+        AccountView.main(scanner);
+        return true;
+    });
 
-    private final String commend;
-    private final Runnable action;
+    private final String command;
+    private final Predicate<Scanner> action;
 
-    MainEnum(String commend, Runnable action) {
-        this.commend = commend;
+    MainEnum(String command, Predicate<Scanner> action) {
+        this.command = command;
         this.action = action;
     }
 
-    public static MainEnum getByCommend(String commend) {
+    public static MainEnum getByCommand(String command) {
         return Arrays.stream(values())
-                .filter(o -> o.commend.equals(commend))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("잘못된 입력."));
+                .filter(o -> o.command.equals(command))
+                .findFirst().orElseThrow(() -> new IllegalArgumentException("Invalid command."));
     }
 
-    public void performAction() {
-        action.run();
+    public boolean performAction(Scanner scanner) {
+        return action.test(scanner);
     }
 }
