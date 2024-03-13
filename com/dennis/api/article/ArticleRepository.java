@@ -36,11 +36,7 @@ public class ArticleRepository {
         pdst.setString(3, writer);
 
         int result = pdst.executeUpdate();
-        if (result > 0) {
-            return "기사 작성 완료";
-        } else {
-            return "기사 작성 실패";
-        }
+        return (result > 0) ? "기사 작성 완료" : "기사 작성 실패";
     }
 
     public String modifyArticle(int id, String subject, String content) throws SQLException {
@@ -51,11 +47,7 @@ public class ArticleRepository {
         pdst.setInt(3, id);
 
         int result = pdst.executeUpdate();
-        if (result > 0) {
-            return "기사 수정 완료";
-        } else {
-            return "기사 수정 실패";
-        }
+        return (result > 0) ? "기사 수정 완료" : "기사 수정 실패";
     }
 
     public String deleteArticle(int id) throws SQLException {
@@ -64,11 +56,7 @@ public class ArticleRepository {
         pdst.setInt(1, id);
 
         int result = pdst.executeUpdate();
-        if (result > 0) {
-            return "기사 삭제 완료";
-        } else {
-            return "기사 삭제 실패";
-        }
+        return (result > 0) ?"기사 삭제 완료" : "기사 삭제 실패";
     }
 
     public List<?> searchArticleByTitle(String title) throws SQLException {
@@ -159,9 +147,6 @@ public class ArticleRepository {
         } else {
             System.out.println("no data");
         }
-
-        rs.close();
-        connection.close();
 
         return ls;
     }

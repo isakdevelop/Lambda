@@ -11,39 +11,44 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public enum MainEnum {
-    Exit("e", scanner -> false),
-    User("u", scanner -> {
+    Exit("e", sc -> false),
+    User("u", sc -> {
         try {
-            UserView.main(scanner);
+            UserView.main(sc);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return true;
     }),
-    Article("a", scanner -> {
+    Article("a", sc -> {
         try {
-            ArticleView.main(scanner);
+            ArticleView.main(sc);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return true;
     }),
-    Board("b", scanner -> {
-        BoardView.main(scanner);
+    Board("b", sc -> {
+        BoardView.main(sc);
         return true;
     }),
-    Crawler("c", scanner -> {
+    Crawler("c", sc -> {
         try {
-            CrawlerView.main(scanner);
+            CrawlerView.main(sc);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return true;
     }),
-    Account("m", scanner -> {
-        AccountView.main(scanner);
+    Account("m", sc -> {
+        AccountView.main(sc);
+        return true;
+    }),
+    INPUTERROR("input_error", i -> {
+        System.out.println("Invalid input value");
         return true;
     });
 
@@ -54,14 +59,16 @@ public enum MainEnum {
         this.command = command;
         this.action = action;
     }
-
-    public static MainEnum getByCommand(String command) {
-        return Arrays.stream(values())
-                .filter(o -> o.command.equals(command))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("Invalid command."));
-    }
-
-    public boolean performAction(Scanner scanner) {
-        return action.test(scanner);
+    public static boolean performAction(Scanner sc) {
+        System.out.println("e - Exit \n" +
+                "u - User\n" +
+                "a - Article\n" +
+                "b - Board\n" +
+                "c - Crawler\n" +
+                "m - Account");
+        System.out.print("input command : ");
+        String command = sc.next();
+        return Stream.of(values()).filter(i -> i.command.equals(command))
+                .findAny().orElse(INPUTERROR).action.test(sc);
     }
 }
