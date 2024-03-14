@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class ArticleServiceImpl extends AbstractService implements com.dennis.api.article.ArticleService {
+public class ArticleServiceImpl implements com.dennis.api.article.ArticleService {
     private ArticleRepository articleRepository;
     private static ArticleService instance = new ArticleServiceImpl();
 
@@ -21,73 +21,73 @@ public class ArticleServiceImpl extends AbstractService implements com.dennis.ap
 
 
     @Override
-    public String writeArticle(String subject, String content, String writer) {
-        return null;
+    public Messenger createArticle(String subject, String content, String writer) throws SQLException {
+        return articleRepository.createArticle(subject,content,writer);
     }
 
     @Override
-    public String modifyArticle(int id, String subject, String content) {
-        return null;
+    public Messenger modifyArticle(int id, String subject, String content) throws SQLException {
+        return articleRepository.modifyArticle(id, subject, content);
     }
 
     @Override
-    public String deleteArticle(int id) {
-        return null;
+    public Messenger deleteArticle(int id) throws SQLException {
+        return articleRepository.deleteArticle(id);
     }
 
     @Override
-    public List<?> searchArticleByTitle(String title) {
-        return null;
+    public Messenger searchArticleByTitle(String title) throws SQLException {
+        return articleRepository.searchArticleByTitle(title);
     }
 
     @Override
-    public List<?> searchArticleByContent(String str) {
-        return null;
+    public Messenger searchArticleByContent(String str) throws SQLException {
+        return articleRepository.searchArticleByContent(str);
     }
 
     @Override
-    public List<?> searchArticleByWriter(String writer) {
-        return null;
+    public Messenger searchArticleByWriter(String writer) throws SQLException {
+        return articleRepository.searchArticleByWriter(writer);
     }
-
-
+//
+//
+//    @Override
+//    public Messenger save(Object o) {
+//        return null;
+//    }
+//
     @Override
-    public Messenger save(Object o) {
-        return null;
-    }
-
-    @Override
-    public List findAll() throws SQLException {
+    public Messenger findAll() throws SQLException {
         return articleRepository.findAll();
     }
 
-    @Override
-    public Optional findById(Long id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Long count() {
-        return null;
-    }
-
-    @Override
-    public Optional getOne(String id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Messenger delete(Object o) {
-        return null;
-    }
-
-    @Override
-    public String deleteAll() {
-        return null;
-    }
-
-    @Override
-    public Boolean existsById(Long id) {
-        return null;
-    }
+//    @Override
+//    public Optional findById(Long id) {
+//        return Optional.empty();
+//    }
+//
+//    @Override
+//    public Long count() {
+//        return null;
+//    }
+//
+//    @Override
+//    public Optional getOne(String id) {
+//        return Optional.empty();
+//    }
+//
+//    @Override
+//    public Messenger delete(Object o) {
+//        return null;
+//    }
+//
+//    @Override
+//    public String deleteAll() {
+//        return null;
+//    }
+//
+//    @Override
+//    public Boolean existsById(Long id) {
+//        return null;
+//    }
 }

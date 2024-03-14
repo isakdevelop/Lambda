@@ -1,32 +1,11 @@
 package com.dennis.api.user;
 
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
     public static void main(Scanner sc) throws SQLException {
-        boolean running = true;
-        while (running)    {
-            System.out.print("[메뉴]\n" +
-                    "0. EXIT(e)\n" +
-                    "1. SIGNUP(signup)\n" +
-                    "2. LOGIN(login)\n" +
-                    "3. SELECTID(selectId)\n" +
-                    "4. PASSWORDCHANGE(passwordChange)\n" +
-                    "5. WITHDRAWAL(withdrawal)\n" +
-                    "6. FINDUSER(finduser)\n" +
-                    "7. FINDUSERBYNAME(finduserbyname)\n" +
-                    "8. FINDUSERBYJOB(finduserbyjob)\n" +
-                    "9. USERCOUNT(usercount)\n" +
-                    "touch - 테이블 생성\n" +
-                    "rm - 테이블 삭제\n" +
-                    "insert - 튜플 생성\n" +
-                    "input command : ");
-
-            UserViewEnum command = UserViewEnum.getByCommand(sc.next());
-            running = command.performAction(sc);
-
+        while(UserRouter.userRoute(sc)) {
         }
     }
 }

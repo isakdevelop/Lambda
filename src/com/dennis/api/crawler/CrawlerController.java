@@ -6,23 +6,19 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class CrawlerController {
+    private static CrawlerController instance = new CrawlerController();
+    public static CrawlerController getInstance() {
+        return instance;
+    }
     private CrawlerServiceImpl service = CrawlerServiceImpl.getInstance();
 
-    public Map<String, ?> findBugsMusic(Scanner scanner) throws IOException {
-        System.out.println("크롤링할 주소를 입력하시오.");
-        String url = scanner.next();
+    public Map<String, ?> findBugsMusic() throws IOException {
         Map<String, String> paramMap = new HashMap<>();
-        paramMap.put("URL", url);
-
         return service.findNamesFromWeb(paramMap);
     }
 
-    public Map<String, ?> findMelonMusic(Scanner scanner) throws IOException {
-        System.out.println("크롤링할 주소를 입력하시오.");
-        String url = scanner.next();
+    public Map<String, ?> findMelonMusic() throws IOException {
         Map<String, String> paramMap = new HashMap<>();
-        paramMap.put("URL", url);
-
         return service.findNamesFromWenInMelon(paramMap);
     }
 }

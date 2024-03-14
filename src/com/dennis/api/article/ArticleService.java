@@ -1,15 +1,16 @@
 package com.dennis.api.article;
 
+import com.dennis.api.enums.Messenger;
+
 import java.sql.SQLException;
 import java.util.List;
 
 public interface ArticleService {
-    String writeArticle(String subject, String content, String writer);
-    String modifyArticle(int id, String subject, String content);
-    String deleteArticle(int id);
-    List<?> searchArticleByTitle(String title);
-    List<?> searchArticleByContent(String str);
-    List<?> searchArticleByWriter(String writer);
-
-    List<?> findAll() throws SQLException;
+    Messenger createArticle(String subject, String content, String writer) throws SQLException;
+    Messenger modifyArticle(int id, String subject, String content) throws SQLException;
+    Messenger deleteArticle(int id) throws SQLException;
+    Messenger searchArticleByTitle(String title) throws SQLException;
+    Messenger searchArticleByContent(String str) throws SQLException;
+    Messenger searchArticleByWriter(String writer) throws SQLException;
+    Messenger findAll() throws SQLException;
 }

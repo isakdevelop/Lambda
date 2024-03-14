@@ -117,7 +117,7 @@ public class UserRepository {
         if (rs.next()) {
             do {
                 System.out.printf("ID : %d \t username : %s \t name : %s \t phone : %s \t" +
-                        " job : %s \t height : %f \t weight : %f\n",
+                        " job : %s \t height : %.2f \t weight : %.2f\n",
                         rs.getInt("id"),
                         rs.getString("username"),
                         rs.getString("name"),
@@ -163,7 +163,7 @@ public class UserRepository {
         if (rs.next()) {
             do {
                 System.out.printf("ID : %d \t username : %s \t name : %s \t phone : %s \t" +
-                                " job : %s \t height : %f \t weight : %f\n",
+                                " job : %s \t height : %.2f \t weight : %.2f\n",
                         rs.getInt("id"),
                         rs.getString("username"),
                         rs.getString("name"),
@@ -188,7 +188,7 @@ public class UserRepository {
         if (rs.next()) {
             do {
                 System.out.printf("ID : %d \t username : %s \t name : %s \t phone : %s \t" +
-                                " job : %s \t height : %f \t weight : %f\n",
+                                " job : %s \t height : %.2f \t weight : %.2f\n",
                         rs.getInt("id"),
                         rs.getString("username"),
                         rs.getString("name"),
@@ -215,7 +215,7 @@ public class UserRepository {
         if (rs.next()) {
             do {
                 System.out.printf("ID : %d \t username : %s \t name : %s \t phone : %s \t" +
-                                " job : %s \t height : %f \t weight : %f\n",
+                                " job : %s \t height : %.2f \t weight : %.2f\n",
                         rs.getInt("id"),
                         rs.getString("username"),
                         rs.getString("name"),

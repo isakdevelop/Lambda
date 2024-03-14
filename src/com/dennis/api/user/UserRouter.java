@@ -1,53 +1,55 @@
 package com.dennis.api.user;
 
+import com.dennis.api.common.CommonController;
+
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
-public enum UserViewEnum {
-    EXIT("e", scanner -> false),
-    SIGNUP("signup", scanner -> {
+public enum UserRouter {
+    EXIT("0", sc -> false),
+    SIGNUP("1", sc -> {
         try {
-            System.out.println(UserController.getInstance().insertUser(scanner));
+            System.out.println(UserController.getInstance().insertUser(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    LOGIN("login", scanner -> {
+    LOGIN("2", sc -> {
         try {
-            System.out.println(UserController.getInstance().databaseLogin(scanner));
+            System.out.println(UserController.getInstance().databaseLogin(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    SELECTID("selectId", scanner -> {
+    SELECTID("3", sc -> {
         try {
-            System.out.println(UserController.getInstance().findUserDatabaseById(scanner));
+            System.out.println(UserController.getInstance().findUserDatabaseById(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    PASSWORDCHANGE("passwordChange", scanner -> {
+    PASSWORDCHANGE("4", sc -> {
         try {
-            System.out.println(UserController.getInstance().changeDatabasePassword(scanner));
+            System.out.println(UserController.getInstance().changeDatabasePassword(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    WITHDRAWAL("withdrawal", scanner -> {
+    WITHDRAWAL("5", sc -> {
         try {
-            System.out.println(UserController.getInstance().changeDatabasePassword(scanner));
+            System.out.println(UserController.getInstance().changeDatabasePassword(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    FINDUSER("finduser", scanner -> {
+    FINDUSER("6", sc -> {
         try {
             System.out.println(UserController.getInstance().findUserDatabase());
             return true;
@@ -55,46 +57,46 @@ public enum UserViewEnum {
             throw new RuntimeException(e);
         }
     }),
-    FINDUSERBYNAME("finduserbyname", scanner -> {
+    FINDUSERBYNAME("7", sc -> {
         try {
-            System.out.println(UserController.getInstance().findUserDatabaseByName(scanner));
+            System.out.println(UserController.getInstance().findUserDatabaseByName(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    FINDUSERBYJOB("finduserbyjob", scanner -> {
+    FINDUSERBYJOB("8", sc -> {
         try {
-            System.out.println(UserController.getInstance().findUserDatabaseByJob(scanner));
+            System.out.println(UserController.getInstance().findUserDatabaseByJob(sc));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }),
-    USERCOUNT("usercount", scanner -> {
+    USERCOUNT("9", sc -> {
         try {
             System.out.println(UserController.getInstance().userCount());
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    })
+    }),
+    WRONG("?", sc -> true)
     ;
     private final String command;
-    private final Predicate<Scanner> action;
+    private final Predicate<Scanner> predicate;
 
-    UserViewEnum(String command, Predicate<Scanner> action) {
+    UserRouter(String command, Predicate<Scanner> predicate) {
         this.command = command;
-        this.action = action;
+        this.predicate = predicate;
     }
 
-    public boolean performAction(Scanner sc) {
-        return action.test(sc);
-    }
-
-    public static UserViewEnum getByCommand(String command) {
+    public static boolean userRoute(Scanner sc) throws SQLException {
+        CommonController.getInstance().getMenuList("user");
+        String input = sc.next();
         return Arrays.stream(values())
-                .filter(o -> o.command.equals(command))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("Invalid command."));
+                .filter(i -> i.command.equals(input))
+                .findAny().orElse(WRONG)
+                .predicate.test(sc);
     }
 }

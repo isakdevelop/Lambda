@@ -8,14 +8,13 @@ import com.dennis.api.user.UserView;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-public enum MainEnum {
-    Exit("e", sc -> false),
-    User("u", sc -> {
+public enum NavigationOfPredicate {
+    Exit("0", sc -> false),
+    User("1", sc -> {
         try {
             UserView.main(sc);
         } catch (SQLException e) {
@@ -23,7 +22,7 @@ public enum MainEnum {
         }
         return true;
     }),
-    Article("a", sc -> {
+    Article("2", sc -> {
         try {
             ArticleView.main(sc);
         } catch (SQLException e) {
@@ -31,11 +30,11 @@ public enum MainEnum {
         }
         return true;
     }),
-    Board("b", sc -> {
+    Board("3", sc -> {
         BoardView.main(sc);
         return true;
     }),
-    Crawler("c", sc -> {
+    Crawler("4", sc -> {
         try {
             CrawlerView.main(sc);
         } catch (IOException e) {
@@ -43,32 +42,34 @@ public enum MainEnum {
         }
         return true;
     }),
-    Account("m", sc -> {
+    Account("5", sc -> {
         AccountView.main(sc);
         return true;
     }),
-    INPUTERROR("input_error", i -> {
+    InputError("input_error", i -> {
         System.out.println("Invalid input value");
         return true;
     });
 
     private final String command;
-    private final Predicate<Scanner> action;
+    private final Predicate<Scanner> predicate;
 
-    MainEnum(String command, Predicate<Scanner> action) {
+    NavigationOfPredicate(String command, Predicate<Scanner> predicate) {
         this.command = command;
-        this.action = action;
+        this.predicate = predicate;
     }
-    public static boolean performAction(Scanner sc) {
-        System.out.println("e - Exit \n" +
-                "u - User\n" +
-                "a - Article\n" +
-                "b - Board\n" +
-                "c - Crawler\n" +
-                "m - Account");
+    public static boolean navigate(Scanner sc) {
+        System.out.println("0 - Exit \n" +
+                "1 - User\n" +
+                "2 - Article\n" +
+                "3 - Board\n" +
+                "4 - Crawler\n" +
+                "5 - Account");
         System.out.print("input command : ");
-        String command = sc.next();
-        return Stream.of(values()).filter(i -> i.command.equals(command))
-                .findAny().orElse(INPUTERROR).action.test(sc);
+        String input = sc.next();
+        return Stream.of(values())
+                .filter(i -> i.command.equals(input))
+                .findAny().orElse(InputError)
+                .predicate.test(sc);
     }
 }
