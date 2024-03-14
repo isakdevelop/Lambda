@@ -1,9 +1,6 @@
 package com.dennis.api;
 
-import com.dennis.api.enums.MainEnum;
-
 import java.util.Scanner;
-
 import static com.dennis.api.enums.MainEnum.performAction;
 
 public class Main {
