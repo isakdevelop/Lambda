@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11e8877a-baca-4c9e-87c9-a3a6a13c0b35" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Lambda" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Lambda" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop-1.2" />
+        <entry key="$PROJECT_DIR$/src" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2dFbBPVvHwkOZmmVgTsoTDiPSQ5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Weekend.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Lambda [:Main.main()].executor": "Run",
+    "JUnit.ItemTest.add.executor": "Run",
+    "JUnit.ItemTest.systemOut.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/bitcamp/IdeaProjects/Lambda/src/lib/mysql-connector-j-8.3.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="common" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bitcamp\IdeaProjects\Lambda\src\lib" />
+      <recent name="C:\Users\bitcamp\IdeaProjects\Lambda\src\product" />
+      <recent name="C:\Users\bitcamp\IdeaProjects\Lambda\src\user" />
+      <recent name="C:\Users\bitcamp\IdeaProjects\Lambda\src\board" />
+      <recent name="C:\Users\bitcamp\IdeaProjects\Lambda\src\account" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.dennis.api.product" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dennis.api.Main" />
+      <module name="Lambda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dennis.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Weekend" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dennis.api.strategy.Weekend" />
+      <module name="Lambda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dennis.api.strategy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lambda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dennis.api.product.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dennis.api.product" />
+      <option name="MAIN_CLASS_NAME" value="com.dennis.api.product.ItemTest" />
+      <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemTest.systemOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lambda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dennis.api.product.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dennis.api.product" />
+      <option name="MAIN_CLASS_NAME" value="com.dennis.api.product.ItemTest" />
+      <option name="METHOD_NAME" value="systemOut" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Weekend" />
+        <item itemvalue="JUnit.ItemTest.add" />
+        <item itemvalue="JUnit.ItemTest.systemOut" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11e8877a-baca-4c9e-87c9-a3a6a13c0b35" name="Changes" comment="" />
+      <created>1709606640309</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709606640309</updated>
+      <workItem from="1709606641353" duration="748000" />
+      <workItem from="1709607670677" duration="23357000" />
+      <workItem from="1709685597580" duration="4511000" />
+      <workItem from="1709690719712" duration="10773000" />
+      <workItem from="1709728970052" duration="77000" />
+      <workItem from="1709773214721" duration="24283000" />
+      <workItem from="1709858049311" duration="24396000" />
+      <workItem from="1709897109681" duration="35000" />
+      <workItem from="1709899945263" duration="626000" />
+      <workItem from="1710122563049" duration="971000" />
+      <workItem from="1710123552586" duration="80000" />
+      <workItem from="1710123897177" duration="1370000" />
+      <workItem from="1710125787153" duration="10000" />
+      <workItem from="1710126522568" duration="138000" />
+      <workItem from="1710127948733" duration="443000" />
+      <workItem from="1710128400097" duration="81000" />
+      <workItem from="1710128544951" duration="277000" />
+      <workItem from="1710129053923" duration="246000" />
+      <workItem from="1710143321857" duration="3331000" />
+      <workItem from="1710161779451" duration="12224000" />
+      <workItem from="1710239698411" duration="6707000" />
+      <workItem from="1710297983304" duration="4269000" />
+      <workItem from="1710322443613" duration="2653000" />
+      <workItem from="1710376862316" duration="1408000" />
+      <workItem from="1710378334723" duration="28647000" />
+      <workItem from="1710418678140" duration="1321000" />
+      <workItem from="1710420169185" duration="2191000" />
+      <workItem from="1710463397111" duration="184000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat - Create Practice Of Lambda">
+      <option name="closed" value="true" />
+      <created>1709641118767</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709641118767</updated>
+    </task>
+    <task id="LOCAL-00002" summary="refactor - crawler service exchange">
+      <option name="closed" value="true" />
+      <created>1709729043507</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729043507</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor - split model about Board -&gt; (Board, Article)">
+      <option name="closed" value="true" />
+      <created>1709815219845</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709815219845</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat - create UserService about connect Databases">
+      <option name="closed" value="true" />
+      <created>1709897094817</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709897094817</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor - signup return Value change">
+      <option name="closed" value="true" />
+      <created>1710123530990</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710123530990</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor - Changing Components">
+      <option name="closed" value="true" />
+      <created>1710161825915</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710161825915</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat - Implementation of Persad Patterns with Enum">
+      <option name="closed" value="true" />
+      <created>1710161856296</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710161856296</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor - Implementation of Persad Patterns with Enum">
+      <option name="closed" value="true" />
+      <created>1710247497591</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710247497592</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat - Create Practice Of Lambda" />
+    <MESSAGE value="refactor - crawler service exchange" />
+    <MESSAGE value="refactor - split model about Board -&gt; (Board, Article)" />
+    <MESSAGE value="feat - create UserService about connect Databases" />
+    <MESSAGE value="refactor - signup return Value change" />
+    <MESSAGE value="refactor - Changing Components" />
+    <MESSAGE value="feat - Implementation of Persad Patterns with Enum" />
+    <MESSAGE value="refactor - Implementation of Persad Patterns with Enum" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor - Implementation of Persad Patterns with Enum" />
+  </component>
+</project>

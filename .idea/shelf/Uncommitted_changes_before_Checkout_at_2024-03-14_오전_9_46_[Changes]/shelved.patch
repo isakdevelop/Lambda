@@ -1,0 +1,18 @@
+Index: src/com/dennis/api/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.dennis.api;\r\n\r\nimport com.dennis.api.enums.MainEnum;\r\n\r\nimport java.util.Scanner;\r\n\r\nimport static com.dennis.api.enums.MainEnum.performAction;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        Scanner sc = new Scanner(System.in);\r\n        boolean running = true;\r\n        while (running) {\r\n            running = performAction(sc);\r\n        }\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/com/dennis/api/Main.java b/src/com/dennis/api/Main.java
+--- a/src/com/dennis/api/Main.java	
++++ b/src/com/dennis/api/Main.java	
+@@ -1,9 +1,7 @@
+ package com.dennis.api;
+ 
+ import com.dennis.api.enums.MainEnum;
+-
+ import java.util.Scanner;
+-
+ import static com.dennis.api.enums.MainEnum.performAction;
+ 
+ public class Main {
