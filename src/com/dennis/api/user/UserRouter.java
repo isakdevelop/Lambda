@@ -1,9 +1,10 @@
 package com.dennis.api.user;
 
-import com.dennis.api.common.CommonController;
+import com.dennis.api.menu.MenuController;
 
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
@@ -92,7 +93,8 @@ public enum UserRouter {
     }
 
     public static boolean userRoute(Scanner sc) throws SQLException {
-        CommonController.getInstance().getMenuList("user");
+        List<String> ls = MenuController.getInstance().getMenuList("user");
+        ls.forEach(i -> System.out.println(i));
         String input = sc.next();
         return Arrays.stream(values())
                 .filter(i -> i.command.equals(input))
