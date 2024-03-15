@@ -14,16 +14,16 @@ public class Account {
     private String accountHolder;
     private Double balance;
     private LocalDate transactionDate;
-    private String returnType;
+    private String transactionType;
 
     @Builder(builderMethodName = "builder")
-    public Account(long id, String accountNumber, String accountHolder, double balance, LocalDate transactionDate, String returnType) {
+    public Account(long id, String accountNumber, String accountHolder, double balance, LocalDate transactionDate, String transactionType) {
         this.id = id;
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
         this.balance = balance;
         this.transactionDate = transactionDate;
-        this.returnType = returnType;
+        this.transactionType = transactionType;
     }
 
     public void setBalance(double balance) {

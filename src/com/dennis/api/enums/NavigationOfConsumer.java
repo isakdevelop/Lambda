@@ -30,7 +30,14 @@ public enum NavigationOfConsumer {
             throw new RuntimeException(e);
         }
     }),
-    Board("board", BoardView::main),
+    Board("board", i ->
+    {
+        try {
+            BoardView.main(i);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }),
     Crawler("crawler", i -> {
         try {
             CrawlerView.main(i);
@@ -38,7 +45,13 @@ public enum NavigationOfConsumer {
             throw new RuntimeException(e);
         }
     }),
-    Account("account", AccountView::main),
+    Account("account", i -> {
+        try {
+            AccountView.main(i);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }),
     InputError("input_error", i -> {})
     ;
 

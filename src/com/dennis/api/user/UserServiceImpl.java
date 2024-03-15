@@ -12,8 +12,8 @@ import java.util.stream.IntStream;
 
 public class UserServiceImpl implements UserService {
 //    extends AbstractService<User>
-    private static UserServiceImpl instance = new UserServiceImpl();
-    UtilService utilService;
+    private static final UserServiceImpl instance = new UserServiceImpl();
+    private UtilService utilService;
     private UserRepository userRepository;
 //    Map<String, User> users;
 
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = UserRepository.getInstance();
     }
 
-    public static UserServiceImpl getInstance() {
+    public static final UserServiceImpl getInstance() {
         return instance;
     }
     @Override

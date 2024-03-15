@@ -35,8 +35,12 @@ public enum NavigationOfFunction {
     }),
     Board("board", i ->
     {
-        BoardView.main(i);
-        return String.valueOf(Messenger.SUCCESS);
+        try {
+            BoardView.main(i);
+            return String.valueOf(Messenger.SUCCESS);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }),
     Crawler("crawler", i -> {
         try {
@@ -47,7 +51,11 @@ public enum NavigationOfFunction {
         }
     }),
     Account("account", i -> {
-        AccountView.main(i);
+        try {
+            AccountView.main(i);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return String.valueOf(Messenger.SUCCESS);
     }),
     InputError("input_error", i -> String.valueOf(Messenger.FAIL))

@@ -23,7 +23,7 @@ public class AccountController {
                         .accountHolder(sc.next())
                         .balance(0)
                         .transactionDate(localDate)
-                        .returnType(null)
+                        .transactionType(null)
                         .build());
     }
 
@@ -37,7 +37,7 @@ public class AccountController {
                         .accountHolder(sc.next())
                         .balance(0)
                         .transactionDate(localDate)
-                        .returnType(null)
+                        .transactionType(null)
                         .build());
         // return accountService.deposit(sc.next(), sc.nextDouble());
     }
@@ -51,7 +51,7 @@ public class AccountController {
                         .accountHolder(sc.next())
                         .balance(0)
                         .transactionDate(localDate)
-                        .returnType(null)
+                        .transactionType(null)
                         .build());
         //return accountService.withdraw(sc.next(), sc.nextDouble());
     }

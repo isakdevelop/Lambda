@@ -33,7 +33,11 @@ public enum NavigationOfSupplier {
         }
     }),
     BOARD("board", () -> {
-        BoardView.main(new Scanner(System.in));
+        try {
+            BoardView.main(new Scanner(System.in));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return String.valueOf(Messenger.SUCCESS);
     }),
     CRAWLER("crawler", () -> {
@@ -45,10 +49,14 @@ public enum NavigationOfSupplier {
         }
     }),
     ACCOUNT("account", () -> {
-        AccountView.main(new Scanner(System.in));
+        try {
+            AccountView.main(new Scanner(System.in));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return String.valueOf(Messenger.SUCCESS);
     }),
-    INPUT_ERROR("input_error", () -> String.valueOf(Messenger.FAIL));
+    INPUT_ERROR("?", () -> String.valueOf(Messenger.FAIL));
 
     private final String command;
     private final Supplier<String> supplier;
